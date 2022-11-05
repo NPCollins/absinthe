@@ -1,0 +1,129 @@
+# Introduction
+
+## Community
+
+### Twitter
+
+Follow the project on Twitter as [`@absinthegraphql`](https://twitter.com/absinthegraphql) for news and additional resources.
+
+### Chat
+
+You can find the maintainers and an active community of users and contributors in the `#absinthe-graphql` channel in the [Elixir](https://elixir-slackin.herokuapp.com/) Slack.
+
+### Forum
+
+Questions and suggestions can be submitted on the [Elixir Forum](https://elixirforum.com). Please categorize/tag as `Absinthe`.
+
+## Installation
+
+To install Absinthe, just add an entry to your `mix.exs`:
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+def deps do
+  [
+    # ...
+    {:absinthe, "~> 1.7"}
+  ]
+end
+```
+
+(Check [Hex](https://hex.pm/packages/absinthe) to make sure you're using an up-to-date version number.)
+
+### Overriding Dependencies
+
+Because the Absinthe project is made up of a large number of related packages to support integrations with other tools, sometimes you may want to update only part of your absinthe-related dependencies.
+
+Don't forget you can use the [:override](https://hexdocs.pm/mix/Mix.Tasks.Deps.html#module-dependency-definition-options) option for your Mix dependencies if you'd like to ensure a specific package is at a specific version number. For example, If you wanted to try a new version of Absinthe without updating something that depends on it (which is locked to an older version):
+
+<!-- livebook:{"force_markdown":true} -->
+
+```elixir
+def deps do
+  [
+    # ...
+    {:absinthe, "~> 1.7", override: true}
+  ]
+end
+```
+
+### Plug, Phoenix, and GraphiQL
+
+Most people use Absinthe to support an HTTP API.
+
+You'll want to read the [Plug and Phoenix](plug-phoenix.md) for specific installation and configuration options, including how you can run the handy, included GraphiQL tool directly from your application.
+
+## Learning
+
+The following are some Absinthe-specific educational resources that are available.
+
+### Books
+
+* [Craft GraphQL APIs in Elixir with Absinthe](https://pragprog.com/book/wwgraphql/craft-graphql-apis-in-elixir-with-absinthe) by the creators of Absinthe.
+
+### Online Resources
+
+* [Website](https://absinthe-graphql.org) (mostly just links elsewhere)
+* [Documentation](https://hexdocs.pm/absinthe) (current stable release)
+* [How to GraphQL (with Absinthe)](https://www.howtographql.com/graphql-elixir/0-introduction/)
+
+### Videos
+
+* [Live APIs with GraphQL Subscriptions](https://www.youtube.com/watch?v=PEckzwggd78), ElixirConf 2017 (Bellevue)
+* [GraphQL in Practice](https://www.youtube.com/watch?v=d2qNlXtpWXM), ElixirConf EU 2017 (Barcelona)
+
+### General GraphQL Information
+
+There's a ton of GraphQL resources on the web.
+
+The [official website](https://graphql.org/) and [How to GraphQL](https://www.howtographql.com) are good places to start.
+
+## Overview
+
+Absinthe is the GraphQL toolkit for Elixir, an implementation of the [GraphQL specification](https://github.com/graphql-elixir/graphql) built to suit the language's capabilities and idiomatic style.
+
+The Absinthe project consists of several complementary packages. You can find the full listing on the [absinthe-graphql](https://github.com/absinthe-graphql) GitHub organization page.
+
+### GraphQL Basics
+
+If you're new to GraphQL, we suggest you read up a bit on GraphQL's foundational principles before you dive into Absinthe.
+
+Here are a few resources that might be helpful:
+
+* The official [GraphQL](https://graphql.org/) website
+* [How to GraphQL](https://www.howtographql.com/), which includes a [brief tutorial](https://www.howtographql.com/graphql-elixir/0-introduction/) using Absinthe
+
+### Absinthe
+
+Absinthe's functionality generally falls into two broad areas. You can read more about the details in the guides provided as part of this documentation and in the related packages/projects:
+
+* [Defining Schemas](schemas.md). A schema:
+  * defines the structure of data entities and the relationships between, as well as the available queries, mutations, and subscriptions, using an elegant collection of declarative macros
+  * defines [custom scalar](custom-scalars.md) types
+  * declares any [deprecated](deprecation.md) definitions
+  * defines resolution functions to access data, using a flexible and extensible middleware/plugin system
+* Executing Documents. A GraphQL document:
+  * can be any standard GraphQL query, mutation, or subscription
+  * may include reusable [variable](variables.md) definitions
+  * can be analyzed for its [complexity](complexity-analysis.md) and be rejected if it's unsafe/too expensive
+  * has a [context](context-and-authentication.md) that you can integrate with authentication and authorization strategies
+  * can contain standard GraphQL [introspection](introspection.md) fields
+  * can include multipart file uploads as GraphQL arguments (as part of the [absinthe_plug](https://hex.pm/packages/absinthe_plug) package)
+
+### Integrations
+
+Absinthe integrates with a number of other important projects, both on the backend and frontend, to provide a better experience for developers.
+
+* Elixir
+  * Support for HTTP APIs using [Plug and Phoenix](plug-phoenix.md) via the [absinthe_plug](https://hex.pm/packages/absinthe_plug) and [absinthe_phoenix](https://hex.pm/packages/absinthe_phoenix) packages
+  * Support for [Ecto](https://hex.pm/packages/ecto) via the [dataloader](https://github.com/absinthe-graphql/dataloader) package
+* JavaScript (client-side)
+  * Support for [Relay](relay.md) and [Apollo Client](apollo.md)
+  * Support for Absinthe's channel-based subscriptions. See [absinthe-socket](https://github.com/absinthe-graphql/absinthe-socket).
+
+### Guides
+
+To contribute to the guides, please submit a pull request to the [absinthe](https://github.com/absinthe-graphql/absinthe) project on GitHub.
+
+You'll find the content under `guides/`.
